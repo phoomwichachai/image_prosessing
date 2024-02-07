@@ -1,0 +1,15 @@
+import cv2
+from matplotlib import pyplot as plt
+image = cv2.imread('picture test.jpg', 0)
+hist = cv2.calcHist([image], [0], None, [256], [0,256])
+histeqim = cv2.equalizeHist(image)
+histeq = cv2.calcHist([histeqim], [0], None, [256], [0,256])
+cv2.imshow('load image', image)
+cv2.imshow('Eq', histeqim)
+plt.plot(hist)
+plt.title('histogram')
+plt.show()
+plt.plot(histeq)
+plt.title('EQ hist')
+plt.show()
+cv2.waitKey(0)
